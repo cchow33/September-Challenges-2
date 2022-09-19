@@ -1,0 +1,13 @@
+// Given three arrays of inttegers: arr1, arr2, arr3, return the sum of integers which are common in all three arrays
+
+const sumCommon = (arr1, arr2, arr3) => {
+    const commonElements = arr1.filter(element => arr2.includes(element) && arr3.includes(element))
+    if (!commonElements.length) return 0
+    return commonElements.reduce((a,b) => a + b, 0)
+}
+
+console.log(sumCommon([1,2,3], [5,3,2], [7,3,2])) // (5), 2 & 3 are common in all arrays
+console.log(sumCommon([1,2,3], [5,3,2,2], [7,3,2,2])) // (7), 2, 2 & 3 are common 
+console.log(sumCommon([1],[1],[2])) // (0)
+
+
