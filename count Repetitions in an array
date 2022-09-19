@@ -1,0 +1,19 @@
+// Given an array, create a function that returns an object detailing how many times each element was repeated. Sort the object by value in descending order.
+// Key is the element
+// Value is the number of element 
+
+// Solution 1
+
+function countRepetitions(arr){
+  // Create an object
+  let output = {}
+  // Loop through array, check if item already exists and we can access it with square []. item = key
+  arr.forEach((item) => {
+    // If item exists, increment
+    if (output[item]) output[item]++
+    else output[item] = 1
+  })
+    return output
+  }
+
+console.log(countRepetitions(['cat', 'dog', 'cat', 'cow', 'cow', 'cow'])) // { cow : 3, cat: 2, dog : 1}
