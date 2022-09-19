@@ -1,0 +1,21 @@
+// Write a function that takes two lists and adds the first element in the first list with the first element in the second list, 
+// the second element in the first list with the second element in the second list, etc, etc. 
+// Return True if all element combinations add up to the same number. Otherwise, return False.
+
+function puzzle_pieces(arr1, arr2){
+    // If lengths are different, return false
+    if (arr1.length !== arr2.length) return false;
+
+    // Use map to calculate sumo of corresponding elements
+    const sum = arr1.map((item, index) => item + arr2[index]);
+
+    // Compare elements to first one
+    return sum.every((el) => el === sum[0]);
+};
+
+
+	
+console.log(puzzle_pieces([1, 8, 5, 0, -1, 7], [0, -7, -4, 1, 2, -6])) // True
+console.log(puzzle_pieces([1, 2], [-1, -1])) // False
+console.log(puzzle_pieces([9, 8, 7], [7, 8, 9, 10])) // False
+
