@@ -17,3 +17,23 @@ function countRepetitions(arr){
   }
 
 console.log(countRepetitions(['cat', 'dog', 'cat', 'cow', 'cow', 'cow'])) // { cow : 3, cat: 2, dog : 1}
+
+// Solution 2 (with reduce)
+
+function countRepetitions(arr){
+    let output = {}
+  
+    // Get a callback with object, current item
+  arr.reduce((object, item) => {
+      if (object[item]) object[item]++
+      else object[item] = 1
+      return object 
+  }, {})
+  
+  return output 
+  
+  }
+  
+  console.log(countRepetitions(['cat', 'dog', 'cat', 'cow', 'cow', 'cow'])) // { cow : 3, cat: 2, dog : 1}
+  
+  
