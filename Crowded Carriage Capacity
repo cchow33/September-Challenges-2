@@ -1,0 +1,21 @@
+// A train has a maximum capacity of n passengers overall, which means each carriage's capacity will share an equal proportion of the maximum capacity.
+// Create a function which returns the index of the first carriage which holds 50% or less of its maximum capacity. If no such carriage exists, return -1.
+
+SOLUTION 1: for loop
+function findASeat(n, arr) {
+    const capacity = n / arr.length
+    let half = 0.5 * capacity
+
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] <= half) return i;
+    }
+    return -1;
+};
+
+
+
+
+
+console.log(findASeat(20, [3, 5, 4, 2])) // 3
+console.log(findASeat(1000, [50, 20, 80, 90, 100, 60, 30, 50, 80, 60])) // 0
+console.log(findASeat(200, [35, 23, 40, 21, 38])) // -1
