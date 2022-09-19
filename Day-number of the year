@@ -1,0 +1,29 @@
+// Given a string 'date' formatted as 'month/day/year', return the day-number of the year
+
+function dayOfYear(date){
+    date = new Date(date) //=
+    const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    const day = date.getDate() //=
+    const month = date.getMonth() //=
+    const year = date.getFullYear() //=
+
+    let dayNumber = 0
+
+    for (let i = 0; i < month; i++){
+        dayNumber += months[i]
+    }
+
+    dayNumber += day
+
+    if (year % 4 === 0 && month > 2){
+        dayNumber++
+    }
+
+    return dayNumber
+
+}
+
+
+console.log(dayOfYear('12/13/2020')) // 348 
+console.log(dayOfYear('12/17/2020')) // 352 
+console.log(dayOfYear('12/31/2000')) // 321 
