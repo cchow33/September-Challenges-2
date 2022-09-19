@@ -2,8 +2,20 @@
 // All the elements in the given array are integers.
 
 
+// Solution 1: For... loop
+function getAbsSum(arr){
+    let result = 0;
+    
+    for (let i = 0; i < arr.length; i++){
+        result += Math.abs(arr[i]);
+    }
+    return result;
+}
+
+
+// Solution 2: Reduce
 function getAbsSum(arr) {
-    return Math.abs(arr.reduce((a, b) => a + b, 0));
+    return arr.reduce((a, b) => a + Math.abs(b), 0));
 };
 
 
